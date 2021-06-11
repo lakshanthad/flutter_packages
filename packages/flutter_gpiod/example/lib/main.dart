@@ -38,17 +38,17 @@ void main() async {
   final line2 = chip.lines[24];
 
   /// Request BCM 23 as output.
-  line1.requestOutput(consumer: "flutter_gpiod test", initialValue: false);
+  line2.requestOutput(consumer: "flutter_gpiod test", initialValue: false);
 
   /// Pulse the line 2 times.
-  line1.setValue(true);
+  line2.setValue(true);
   await Future.delayed(Duration(milliseconds: 500));
-  line1.setValue(false);
+  line2.setValue(false);
   await Future.delayed(Duration(milliseconds: 500));
-  line1.setValue(true);
+  line2.setValue(true);
   await Future.delayed(Duration(milliseconds: 500));
   // setValue(false) is not needed since we're releasing it anyway
-  line1.release();
+  line2.release();
 
   /// Now we're listening for falling and rising edge events
   /// on BCM 23 and BCM 24.
